@@ -1,0 +1,4 @@
+{
+    "command": "npm run build",
+    "working_directory": "/home/kavia/workspace/code-generation/product-review-video-generator-143954-143951/product_review_video_frontend"
+}
