@@ -1,44 +1,43 @@
+import React from "react";
 import { Composition } from "remotion";
+import App from "./App";
 import { HelloWorld, myCompSchema } from "./HelloWorld";
 import { Logo, myCompSchema2 } from "./HelloWorld/Logo";
 
-// Each <Composition> is an entry in the sidebar!
-
+// RemotionRoot: registers both the Remotion composition(s), and mounts the App for web frontend use.
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      {/* UI application entry for web */}
+      <App />
+
+      {/* Remotion compositions for renderable video(s) */}
       <Composition
-        // You can take the "id" to render a video:
-        // npx remotion render src/index.ts <id> out/video.mp4
         id="HelloWorld"
         component={HelloWorld}
         durationInFrames={150}
         fps={30}
-        width={1920}
-        height={1080}
-        // You can override these props for each render:
-        // https://www.remotion.dev/docs/parametrized-rendering
+        width={1280}
+        height={720}
         schema={myCompSchema}
         defaultProps={{
           titleText: "Welcome to Remotion",
-          titleColor: "#000000",
-          logoColor1: "#91EAE4",
-          logoColor2: "#86A8E7",
+          titleColor: "#1976D2",
+          logoColor1: "#1976D2",
+          logoColor2: "#FFC107",
         }}
       />
-
-      {/* Mount any React component to make it show up in the sidebar and work on it individually! */}
       <Composition
         id="OnlyLogo"
         component={Logo}
         durationInFrames={150}
         fps={30}
-        width={1920}
-        height={1080}
+        width={1280}
+        height={720}
         schema={myCompSchema2}
         defaultProps={{
-          logoColor1: "#91dAE2" as const,
-          logoColor2: "#86A8E7" as const,
+          logoColor1: "#1976D2" as const,
+          logoColor2: "#FFC107" as const,
         }}
       />
     </>
